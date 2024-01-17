@@ -1,9 +1,7 @@
 package src;
 
 import src.Creational.Singleton;
-import src.Structural.Component;
-import src.Structural.ConcreteComponent;
-import src.Structural.ConcreteDecorator;
+import src.Structural.*;
 
 public class Main {
     public static void main(String[] args) {
@@ -17,5 +15,9 @@ public class Main {
 
         Component decoratedComponent = new ConcreteDecorator(basicComponent);
         decoratedComponent.operation();
+
+        // Adapter Pattern
+        Target target = new Adapter();
+        target.request();
     }
     }
