@@ -1,8 +1,7 @@
 package src;
 
-import src.Creational.Singleton;
 import src.Structural.*;
-
+import src.Creational.Singleton;
 public class Main {
     public static void main(String[] args) {
         // Singleton Pattern
@@ -10,11 +9,8 @@ public class Main {
         System.out.println("Singleton instance: " + singleton);
 
         // Decorator Pattern
-        Component basicComponent = new ConcreteComponent();
-        basicComponent.operation();
-
-        Component decoratedComponent = new ConcreteDecorator(basicComponent);
-        decoratedComponent.operation();
+        MessageSender emailSender = new EmailSender();
+        MessageSender encryptedEmailSender = new EncryptedMessageDecorator(emailSender);
 
         // Adapter Pattern
         Target target = new Adapter();
