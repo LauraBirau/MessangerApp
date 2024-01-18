@@ -1,5 +1,5 @@
 # MessangerApp
-This repository contains an app built for the Software Design course from HZ University of Applied Sciences.
+This repository contains an app built for the Software Design course from HZ University of Applied Sciences made by Laura Birau (LauraBirau) and Dawid Czuba(Dajzio).
 
 ## Cooperation
 
