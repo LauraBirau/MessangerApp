@@ -1,7 +1,13 @@
 package src.Creational;
 
+import src.behavioral.MessageObserver;
+import java.util.ArrayList;
+import java.util.List;
+
 public class MessageService {
     private static MessageService instance;
+
+    private List<MessageObserver> observers = new ArrayList<>();
 
     private MessageService() {}
 
@@ -13,5 +19,17 @@ public class MessageService {
     }
     public void sendMessage(String message) {
         System.out.println("Sending message: " + message);
+        notifyObservers(message);
+
+    }
+
+    public void addObserver(MessageObserver observer) {
+        observers.add(observer);
+    }
+
+    private void notifyObservers(String message) {
+        for (MessageObserver observer : observers) {
+            observer.update(message);
+        }
     }
 }
