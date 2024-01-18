@@ -1,17 +1,13 @@
 
 package src;
 
-import src.Creational.MessageSenderFactory;
-import src.Creational.MessageSendingContext;
-import src.Creational.MessageService;
+import src.Creational.*;
 import src.Structural.*;
-import src.behavioral.LoggingMessageObserver;
-import src.behavioral.MessageObserver;
+import src.Behavioural.*;
 
 import java.util.Scanner;
 public class Main {
     public static void main(String[] args) {
-        Scanner scanner = new Scanner(System.in);
         // Singleton Pattern
         MessageService messageService = MessageService.getInstance();
 
@@ -31,6 +27,7 @@ public class Main {
         MessageSendingContext messageSendingContext = new MessageSendingContext();
 
         // Using the patterns
+        Scanner scanner = new Scanner(System.in);
 
         // Console Input for Message Type
         System.out.print("What type do you prefer? (email/sms): ");
@@ -45,11 +42,12 @@ public class Main {
         if ("yes".equalsIgnoreCase(encryptOption)) {
             selectedMessageSender = new EncryptedMessageDecorator(selectedMessageSender);
         }
-        // Adapter Pattern with Console Input        System.out.print("Do you want to use an adapter? (yes/no): ");
+        // Adapter Pattern with Console Input
+        System.out.print("Do you want to use an adapter? (yes/no): ");
         String useAdapterOption = scanner.nextLine();
         if ("yes".equalsIgnoreCase(useAdapterOption)) {
             MessageAdapter adapter = new MessageAdapterImpl(selectedMessageSender);
-            adapter.sendMessage("Message sent successfully");
+            adapter.sendMessage("A very thoughtful message!");
         } else {
             // Strategy Pattern with Console Input
             messageSendingContext.setMessageSender(selectedMessageSender);

@@ -1,7 +1,5 @@
-package src.behavioral;
+package src.Behavioural;
 
-
-import src.behavioral.MessageObserver;
 
 public class LoggingMessageObserver implements MessageObserver {
     @Override    public void update(String message) {

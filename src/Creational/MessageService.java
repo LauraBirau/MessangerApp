@@ -1,6 +1,6 @@
 package src.Creational;
 
-import src.behavioral.MessageObserver;
+import src.Behavioural.MessageObserver;
 import java.util.ArrayList;
 import java.util.List;
 

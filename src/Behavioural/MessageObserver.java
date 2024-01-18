@@ -1,4 +1,4 @@
-package src.behavioral;
+package src.Behavioural;
 
 public interface MessageObserver {
     void update(String message);
