@@ -1,4 +1,4 @@
-package src.Creational;
+package src.Structural;
 
 import src.Structural.MessageSender;
 
