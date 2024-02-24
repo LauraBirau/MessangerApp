@@ -12,7 +12,7 @@ public class Main {
         MessageService messageService = MessageService.getInstance();
 
         // Factory Pattern
-        MessageSenderFactory messageSenderFactory = new MessageSenderFactory();
+        MessageSenderFactory messageSenderFactory;
 
         // Decorator Pattern
         MessageSender emailSender = new EmailSender();
@@ -34,7 +34,14 @@ public class Main {
         String messageType = scanner.nextLine();
 
         // Factory Pattern with Console Input
-        MessageSender selectedMessageSender = messageSenderFactory.createMessageSender(messageType);
+        if ("email".equalsIgnoreCase(messageType)) {
+            messageSenderFactory = new EmailSenderFactory();
+        } else if ("sms".equalsIgnoreCase(messageType)) {
+            messageSenderFactory = new SMSSenderFactory();
+        } else {
+            throw new IllegalArgumentException("Invalid message type: " + messageType);
+        }
+        MessageSender selectedMessageSender = messageSenderFactory.createMessageSender();
 
         // Decorator Pattern with Console Input
         System.out.print("Any encryption needed? (yes/no): ");
