@@ -1,4 +1,3 @@
-
 package src;
 
 import src.Creational.*;
@@ -6,6 +5,7 @@ import src.Structural.*;
 import src.Behavioural.*;
 
 import java.util.Scanner;
+
 public class Main {
     public static void main(String[] args) {
         // Singleton Pattern
@@ -15,7 +15,7 @@ public class Main {
         MessageSenderFactory messageSenderFactory;
 
         // Decorator Pattern
-        MessageSender emailSender = new EmailSender();
+        MessageSender emailSender = new EmailSender("example@example.com");
         MessageSender encryptedEmailSender = new EncryptedMessageDecorator(emailSender);
 
         // Adapter Pattern
@@ -35,7 +35,9 @@ public class Main {
 
         // Factory Pattern with Console Input
         if ("email".equalsIgnoreCase(messageType)) {
-            messageSenderFactory = new EmailSenderFactory();
+            System.out.print("Enter your email address: ");
+            String emailAddress = scanner.nextLine();
+            messageSenderFactory = new EmailSenderFactory(emailAddress);
         } else if ("sms".equalsIgnoreCase(messageType)) {
             messageSenderFactory = new SMSSenderFactory();
         } else {
@@ -49,12 +51,16 @@ public class Main {
         if ("yes".equalsIgnoreCase(encryptOption)) {
             selectedMessageSender = new EncryptedMessageDecorator(selectedMessageSender);
         }
+
         // Adapter Pattern with Console Input
         System.out.print("Do you want to use an adapter? (yes/no): ");
         String useAdapterOption = scanner.nextLine();
         if ("yes".equalsIgnoreCase(useAdapterOption)) {
+            // Using the Adapter
             MessageAdapter adapter = new MessageAdapterImpl(selectedMessageSender);
-            adapter.sendMessage("A very thoughtful message!");
+            System.out.print("Enter the message content: ");
+            String messageContent = scanner.nextLine();
+            adapter.sendMessage("A very thoughtful message: " + messageContent);
         } else {
             // Strategy Pattern with Console Input
             messageSendingContext.setMessageSender(selectedMessageSender);
@@ -64,8 +70,8 @@ public class Main {
         }
 
         // Observer pattern usage
-        messageService.sendMessage("Message sent from Iphone");
+        messageService.sendMessage("Message sent from iPhone");
         messageService.addObserver(loggingObserver);
-        messageService.sendMessage("Message sent from Iphone with Logging Observer");
+        messageService.sendMessage("Message sent from iPhone with Logging Observer");
     }
 }
