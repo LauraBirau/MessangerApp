@@ -25,6 +25,8 @@ public class Main {
 
         // Strategy Pattern
         MessageSendingContext messageSendingContext = new MessageSendingContext();
+        MessageSendingStrategy defaultStrategy = new EmailSendingStrategy();
+        messageSendingContext.setMessageSender(defaultStrategy);
 
         // Using the patterns
         Scanner scanner = new Scanner(System.in);
@@ -63,7 +65,6 @@ public class Main {
             adapter.sendMessage("A very thoughtful message: " + messageContent);
         } else {
             // Strategy Pattern with Console Input
-            messageSendingContext.setMessageSender(selectedMessageSender);
             System.out.print("Enter the message content: ");
             String messageContent = scanner.nextLine();
             messageSendingContext.sendMessage(messageContent);

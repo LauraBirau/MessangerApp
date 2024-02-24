@@ -3,7 +3,7 @@ package src.Structural;
 public class EncryptedMessageDecorator extends MessageDecorator {
 
     // Default encryption algorithm or no algorithm if not provided
-    private static final String DEFAULT_ENCRYPTION_ALGORITHM = "DefaultEncryptionAlgorithm";
+    private static final String DEFAULT_ENCRYPTION_ALGORITHM = "VeryComplicatedEncryption";
 
     public EncryptedMessageDecorator(MessageSender messageSender) {
         super(messageSender);
