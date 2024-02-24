@@ -36,4 +36,5 @@ This simple Java application is a messaging app that demonstrates the use of 6 d
 
 6. **Strategy Pattern**
    - **Purpose:** Define a family of algorithms, encapsulate each one and make them interchangeable. The Strategy pattern allows the algorithm to change independently of the clients using it.
-   - **Usage in Message App:** The `MessageSendingContext` class represents the context in 
+   - **Usage in Message App:** The `MessageSendingContext` class represents the context in which different message sending strategies (`EmailSendingStrategy`, `SMSSendingStrategy`
+) can be used interchangeably. This flexibility allows the application to switch between different message sending algorithms dynamically based on user input.
