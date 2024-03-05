@@ -19,7 +19,6 @@ public class Main {
         MessageSender encryptedEmailSender = new EncryptedMessageDecorator(emailSender);
 
         // Adapter Pattern
-        MessageAdapter emailAdapter = new MessageAdapterImpl(emailSender);
 
         MessageObserver loggingObserver = new LoggingMessageObserver();
 
